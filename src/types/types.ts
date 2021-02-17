@@ -5,7 +5,13 @@ export type DeleteValueActionType = {
     itemID: string
 }
 
-export type ActionsType = DeleteValueActionType
+export type AddItemActionType = {
+    type: "ADD-ITEM"
+    title: string
+    value: string
+}
+
+export type ActionsType = DeleteValueActionType | AddItemActionType
 
 export type RemaindesPageType = {
     hoses: HosesType
@@ -19,9 +25,13 @@ export type HosesType = Array<HoseProductType>
 export type HoseProductType = {
     id: string
     title: string
-    remaindes: Array<RemaindesType>
+
 }
 export type RemaindesType = {
     id: string
     value: string
+}
+
+export type AddValuesPage = {
+    [key:string]: Array<RemaindesType>
 }

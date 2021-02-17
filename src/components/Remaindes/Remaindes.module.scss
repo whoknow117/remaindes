@@ -6,12 +6,27 @@
   background: #e3e3e3;
   .wrapper {
     display: flex;
+    align-items: center;
+    border-bottom: 1px solid #c4c4c4;
+    height: 40px;
     .title {
       font-weight: 700;
+      width: 140px;
+      text-align: center;
     }
     .value {
       margin-left: 10px;
       display: flex;
+
+      height: 100%;
+      line-height: 40px;
+      .itemValue {
+        width: 40px;
+        height: 100%;
+        border-left: 1px solid silver;
+        border-right: 1px solid silver;
+        text-align: center;
+      }
     }
   }
 }
