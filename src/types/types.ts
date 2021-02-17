@@ -8,7 +8,7 @@ export type DeleteValueActionType = {
 export type AddItemActionType = {
     type: "ADD-ITEM"
     title: string
-    value: string
+
 }
 
 export type ActionsType = DeleteValueActionType | AddItemActionType

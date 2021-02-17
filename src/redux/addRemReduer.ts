@@ -1,5 +1,5 @@
 import {v1} from "uuid";
-import { , AddValuesPage } from "../types/types";
+import { AddValuesPage } from "../types/types";
 import {ActionsType   } from "../types/types";
 
 
