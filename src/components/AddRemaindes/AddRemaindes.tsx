@@ -7,7 +7,11 @@ type AddRemaindesType = {
 
 const AddRemaindes:React.FC<AddRemaindesType> = () => {
     return (
-        <div className={classes.addRemaindes}> </div>
+        <div className={classes.addRemaindes}>
+            <input type="text"/>
+            <input type="text"/>
+            <button>Добавить товар</button>
+        </div>
     )
 }
 

@@ -1,20 +1,25 @@
 import React from 'react';
 import classes from './Remaindes.module.scss';
 import {StateType} from "../../redux/store";
+import {useSelector} from "react-redux";
+import {RemaindesPageType} from "../../types/types";
 
 type RemaindesType = {
 
-    state: StateType
 }
 
-const Remaindes: React.FC<RemaindesType> = ({state}) => {
+const Remaindes: React.FC<RemaindesType> = ( ) => {
+
+    let remaindesPage = useSelector<StateType,RemaindesPageType>( state => state.remaindesPage)
+
+
     return (
         <div className={classes.remaindes}>
-            {state.hoses.map(h => {
-                return <div key={h.id}>
-                    <div>{h.title}</div>
-                    <div>
-                        {h.remaindes.map(r => <div key={r.id}>{r.value}</div>)}
+            {remaindesPage.hoses.map(h => {
+                return <div className={classes.wrapper} key={h.id}>
+                    <div className={classes.title}>{h.title}: </div>
+                    <div className={classes.value}>
+                        {h.remaindes.map(r => <div key={r.id}> {r.value}</div>)}
                     </div>
                 </div>
             })}

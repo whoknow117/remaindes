@@ -4,17 +4,17 @@ import './App.css';
 import Remaindes from "./components/Remaindes/Remaindes";
 import AddRemaindes from "./components/AddRemaindes/AddRemaindes";
 import Menu from "./components/Menu/Menu";
-import {RootType} from "./redux/store";
+
 
 
 type AppPropsType = {
-    store: RootType
+
 }
 
 function App(props:AppPropsType) {
 
 
-    let state = props.store.getState();
+
 
 
 
@@ -23,7 +23,7 @@ function App(props:AppPropsType) {
         <Menu/>
         <div className="routeWrapper">
             <Route exact path='/remaindes'
-                   render={() => <Remaindes state={state} />}/>
+                   render={() => <Remaindes  />}/>
             <Route path="/addRemaindes"
                    render={() => <AddRemaindes />}/>
         </div>
