@@ -6,7 +6,9 @@ type AddRemaindesType = {
 }
 
 const AddRemaindes:React.FC<AddRemaindesType> = () => {
-    return <div>123</div>
+    return (
+        <div className={classes.addRemaindes}> </div>
+    )
 }
 
 export default AddRemaindes;
