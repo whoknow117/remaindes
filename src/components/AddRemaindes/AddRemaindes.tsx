@@ -1,7 +1,10 @@
 import React, {ChangeEvent, useState} from 'react';
 import classes from './AddRemaindes.module.scss';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AddItemAC} from "../../redux/remaindesReducer";
+import {AddValueAC} from "../../redux/addRemReduer";
+import {StateType} from "../../redux/store";
+import {HoseProductType} from "../../types/types";
 
 type AddRemaindesType = {
 
@@ -9,12 +12,23 @@ type AddRemaindesType = {
 
 const AddRemaindes:React.FC<AddRemaindesType> = () => {
 
+
+    const remaindes = useSelector<StateType,Array<HoseProductType>>(state => state.remaindesPage)
+
     let dispatch = useDispatch();
 
     const [title,setTitle] = useState<string>('')
 
+    const [values, setValues] = useState<string>('')
+
     const addItemCallback = () => {
         dispatch(AddItemAC(title));
+
+    }
+
+
+    const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
+        setValues(e.currentTarget.value)
     }
 
     const onChangeTitle = (e:ChangeEvent<HTMLInputElement>) => {
@@ -23,9 +37,13 @@ const AddRemaindes:React.FC<AddRemaindesType> = () => {
 
     return (
         <div className={classes.addRemaindes}>
-            <input value={title} onChange={onChangeTitle} type="text"/>
-            <input type="text"/>
-            <button onClick={addItemCallback}>Добавить товар</button>
+            {remaindes.map(r => {
+                return (
+                    <div>
+
+                    </div>
+                )
+            })}
         </div>
     )
 }

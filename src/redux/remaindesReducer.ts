@@ -3,12 +3,10 @@ import {AddItemActionType, HoseProductType, RemaindesPageType} from "../types/ty
 import {ActionsType, DeleteValueActionType} from "../types/types";
 
 
-let InitialState: RemaindesPageType = {
-    hoses: [
-        {id:v1(),title: 'Туман 32'},
-        {id:v1(),title: 'Туман 40'}
-    ]
-}
+let InitialState: Array<HoseProductType> = [
+
+]
+
 
 
 
@@ -16,6 +14,7 @@ export const AddItemAC = (title:string ): AddItemActionType => {
     return {
         type: "ADD-ITEM",
         title,
+        itemID: v1()
 
     }
 }
@@ -28,19 +27,19 @@ export const DeleteValueAC = (itemID:string):DeleteValueActionType => {
 }
 
 
-const remaindesReducer = (state = InitialState, action: ActionsType): RemaindesPageType  =>  {
+const remaindesReducer = (state = InitialState, action: ActionsType): Array<HoseProductType>  =>  {
     switch (action.type) {
         case "DELETE-VALUE": {
             return {...state}
         }
         case "ADD-ITEM": {
-            let copyState = {...state}
+            let copyState = [...state]
 
             let newItem: HoseProductType = {
-                id: v1(),
+                id: action.itemID,
                 title: action.title
             }
-            copyState.hoses.push(newItem)
+            copyState.push(newItem)
             return copyState;
         }
         default: {
