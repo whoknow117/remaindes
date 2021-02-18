@@ -1,35 +1,81 @@
 
-
-.remaindes {
-  width: 100%;
-  height: 100%;
-  .wrapper {
-    display: flex;
-
-    flex-direction: column;
-    border-bottom: 1px solid #c4c4c4;
+.remaindesPage {
+  .addProductInput {
+    width: 100%;
+    background: linear-gradient(21deg, #dd03e4, #5611ec);
+    text-align: center;
     height: 80px;
-    .title {
-      font-weight: 700;
-      width: 140px;
-      text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    .logo {
+      position: absolute;
+      left: 30px;
+      font-family: Arial,sans-serif;
+      font-size: 24px;
+      color: #fff;
     }
-    .value {
+    .input {
+      height: 40px;
+      width: 300px;
+      border:none;
+      border-radius: 5px;
+      padding-left: 10px;
+      outline: none;
+    }
+    .btn {
+      display: block;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
       margin-left: 10px;
+      padding: 0 10px;
+      transition: .2s;
+      &:hover {
+        cursor: pointer;
+        background: #2d83f6;
+        color: #fff;
+      }
+
+    }
+  }
+  .remaindes {
+    width: 100%;
+    height: 100%;
+    .wrapper {
       display: flex;
 
-      height: 100%;
-      line-height: 40px;
-      .itemValue {
-        width: 40px;
+      flex-direction: column;
+      border-bottom: 1px solid #c4c4c4;
+      height: 60px;
+      .title {
+        font-weight: 700;
+        width: 200px;
+       display: flex;
+        align-items: center;
         height: 100%;
-        border-left: 1px solid silver;
-        border-right: 1px solid silver;
-        text-align: center;
+        padding-left: 10px;
+        text-align: left;
+      }
+      .value {
+        margin-left: 10px;
+        display: flex;
+
+        height: 100%;
+        line-height: 40px;
+        .itemValue {
+          width: 40px;
+          height: 100%;
+          border-left: 1px solid silver;
+          border-right: 1px solid silver;
+          text-align: center;
+        }
       }
     }
   }
 }
+
 
 .valueItem {
   height: 60px;
@@ -37,14 +83,17 @@
   align-items: center;
   justify-content: center;  
   width: 40px;
-  border-left: 1px solid silver;
+
   text-align: center;
   border-right: 1px solid silver;
+  &:first-child {
+    border-left: 1px solid silver;
+  }
 }
 
 .valueWrapper {
   display: flex;
   align-items: center;
   height: 60px;
-  border-top: 1px solid silver;
+
 }

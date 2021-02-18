@@ -1,4 +1,5 @@
 import React, {ChangeEvent, useState} from 'react';
+import classes from './InputValues.module.scss';
 import {useDispatch} from "react-redux";
 import {AddValueAC} from "../../../redux/addRemReduer";
 
@@ -24,9 +25,9 @@ const   InputValues:React.FC<InputValuesPropsType> = ({itemID }) => {
     }
 
     return  (
-        <div>
-            <input value={values} onChange={onChangeValue} type="text"/>
-            <button onClick={setValuesCallback}>добавить остаток</button>
+        <div className={classes.inputValue}>
+            <input className={classes.input} value={values} onChange={onChangeValue} type="text"/>
+            <button className={classes.btn} onClick={setValuesCallback}>добавить остаток</button>
         </div>
     )
 

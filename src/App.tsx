@@ -20,7 +20,7 @@ function App(props:AppPropsType) {
 
   return (
     <div className="App">
-        <Menu/>
+
         <div className="routeWrapper">
             <Route exact path='/remaindes'
                    render={() => <Remaindes  />}/>

@@ -11,7 +11,7 @@ type RemaindesType = {
 
 }
 
-const Remaindes: React.FC<RemaindesType> = ( ) => {
+const   Remaindes: React.FC<RemaindesType> = ( ) => {
 
     let state = useSelector<StateType,Array<HoseProductType>>( state => state.remaindesPage)
 
@@ -37,17 +37,18 @@ const Remaindes: React.FC<RemaindesType> = ( ) => {
     }
 
     return (
-        <div>
-            <div className={classes.input}>
-                <input value={title} onChange={onChangeTitle} type="text"/>
-                <button onClick={addItemCallback}>Добавить товар</button>
+        <div className={classes.remaindesPage}>
+            <div className={classes.addProductInput}>
+                <h6 className={classes.logo}>Снабженец</h6>
+                <input className={classes.input} value={title} onChange={onChangeTitle} type="text"/>
+                <button className={classes.btn} onClick={addItemCallback}>Добавить товар</button>
 
 
             </div>
             <div className={classes.remaindes}>
                 {state.map(h => {
                     return <div className={classes.wrapper} key={h.id}>
-                        <InputValues itemID={h.id}/>
+
 
                            <div className={classes.valueWrapper}>
                                <div className={classes.title}>{h.title} </div>
@@ -58,6 +59,7 @@ const Remaindes: React.FC<RemaindesType> = ( ) => {
                                        </div>
                                    })}
                                </div>
+                               <InputValues itemID={h.id}/>
                            </div>
 
                     </div>
