@@ -22,6 +22,7 @@ function App(props:AppPropsType) {
     <div className="App">
 
         <div className="routeWrapper">
+
              <Remaindes  />
 
         </div>

@@ -41,6 +41,7 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
     }
 
     return (
+
         <div className={classes.remaindesPage}>
             <div className={classes.addProductInput}>
                 <h6 className={classes.logo}>Снабженец</h6>
@@ -54,17 +55,17 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
                     return <div className={classes.wrapper} key={h.id}>
 
 
-                           {/*<div className={classes.valueWrapper}>*/}
-                           {/*    <div className={classes.title}>{h.title} </div>*/}
-                           {/*    <div className={classes.value}>*/}
-                           {/*        {addValuesPage[h.id].map(v => {*/}
-                           {/*            return <div className={classes.valueItem}>*/}
-                           {/*                {v.value}*/}
-                           {/*            </div>*/}
-                           {/*        })}*/}
-                           {/*    </div>*/}
-                           {/*    <InputValues itemID={h.id}/>*/}
-                           {/*</div>*/}
+                           <div className={classes.valueWrapper}>
+                               <div className={classes.title}>{h.title} </div>
+                               <div className={classes.value}>
+                                   {addValuesPage[h.id].map(v => {
+                                       return <div className={classes.valueItem}>
+                                           {v.value}
+                                         </div>
+                                   })}
+                               </div>
+                               <InputValues itemID={h.id}/>
+                           </div>
 
                     </div>
                 })}

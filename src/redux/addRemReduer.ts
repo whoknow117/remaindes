@@ -20,6 +20,7 @@ export const AddValueAC = (value:string, itemID:string):AddValueActionType => {
 
 
 const addRemaindesReducer = (state = InitialState, action: ActionsType): AddValuesPage  =>  {
+
     switch (action.type) {
         case "ADD-ITEM": {
             return {...state,[action.itemID]: []}
