@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import Remaindes from "./components/Remaindes/Remaindes";
 import AddRemaindes from "./components/AddRemaindes/AddRemaindes";
-import Menu from "./components/Menu/Menu";
+
 
 
 
@@ -22,10 +22,8 @@ function App(props:AppPropsType) {
     <div className="App">
 
         <div className="routeWrapper">
-            <Route exact path='/remaindes'
-                   render={() => <Remaindes  />}/>
-            <Route path="/addRemaindes"
-                   render={() => <AddRemaindes />}/>
+             <Remaindes  />
+
         </div>
     </div>
   );

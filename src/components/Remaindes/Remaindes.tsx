@@ -4,7 +4,7 @@ import {StateType} from "../../redux/store";
 import {useDispatch, useSelector} from "react-redux";
 import {AddValuesPage, HoseProductType} from "../../types/types";
 import {AddItemAC} from "../../redux/remaindesReducer";
-import {AddValueAC} from "../../redux/addRemReduer";
+
 import InputValues from "./InputValues/InputValues";
 
 type RemaindesType = {
@@ -14,6 +14,10 @@ type RemaindesType = {
 const   Remaindes: React.FC<RemaindesType> = ( ) => {
 
     let state = useSelector<StateType,Array<HoseProductType>>( state => state.remaindesPage)
+
+
+
+
 
     let addValuesPage = useSelector<StateType,AddValuesPage>( state => state.valuesPage)
 
@@ -50,17 +54,17 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
                     return <div className={classes.wrapper} key={h.id}>
 
 
-                           <div className={classes.valueWrapper}>
-                               <div className={classes.title}>{h.title} </div>
-                               <div className={classes.value}>
-                                   {addValuesPage[h.id].map(v => {
-                                       return <div className={classes.valueItem}>
-                                           {v.value}
-                                       </div>
-                                   })}
-                               </div>
-                               <InputValues itemID={h.id}/>
-                           </div>
+                           {/*<div className={classes.valueWrapper}>*/}
+                           {/*    <div className={classes.title}>{h.title} </div>*/}
+                           {/*    <div className={classes.value}>*/}
+                           {/*        {addValuesPage[h.id].map(v => {*/}
+                           {/*            return <div className={classes.valueItem}>*/}
+                           {/*                {v.value}*/}
+                           {/*            </div>*/}
+                           {/*        })}*/}
+                           {/*    </div>*/}
+                           {/*    <InputValues itemID={h.id}/>*/}
+                           {/*</div>*/}
 
                     </div>
                 })}
