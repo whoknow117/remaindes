@@ -22,6 +22,7 @@ const  InputValues:React.FC<InputValuesPropsType> = ({itemID }) => {
 
     const setValuesCallback = () => {
         dispatch(AddValueAC(values, itemID))
+        setValues('');
     }
 
     return  (
