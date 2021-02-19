@@ -10,7 +10,7 @@ type InputValuesPropsType = {
     itemID: string
 }
 
-const   InputValues:React.FC<InputValuesPropsType> = ({itemID }) => {
+const  InputValues:React.FC<InputValuesPropsType> = ({itemID }) => {
 
     const [values, setValues] = useState<string>('')
 

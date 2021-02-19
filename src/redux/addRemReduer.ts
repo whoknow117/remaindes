@@ -17,11 +17,16 @@ export const AddValueAC = (value:string, itemID:string):AddValueActionType => {
     }
 }
 
+let valuesState = localStorage.getItem('values')
+
+let val:AddValuesPage = JSON.parse(valuesState ? valuesState : "")
 
 
-const addRemaindesReducer = (state = InitialState, action: ActionsType): AddValuesPage  =>  {
+const addRemaindesReducer = (state = val, action: ActionsType): AddValuesPage  =>  {
     switch (action.type) {
         case "ADD-ITEM": {
+
+
             return {...state,[action.itemID]: []}
         }
         case "ADD-VALUE": {
@@ -32,9 +37,15 @@ const addRemaindesReducer = (state = InitialState, action: ActionsType): AddValu
                 value: action.value
 
             }
+
             console.log(newValue)
              copyState[action.itemID].push(newValue)
+            localStorage.setItem('values', JSON.stringify(copyState))
             return copyState
+        }
+        case "DELETE-VALUE": {
+            delete state[action.itemID];
+            return state;
         }
         default: {
             return state;

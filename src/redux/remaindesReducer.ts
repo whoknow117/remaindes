@@ -33,12 +33,15 @@ export const DeleteValueAC = (itemID:string):DeleteValueActionType => {
 
 let localState  = localStorage.getItem('local')
 
-let parseLocalState:Array<HoseProductType> = JSON.parse(localState ? localState : "")
+let parseLocalState:Array<HoseProductType>  = JSON.parse(localState ? localState : "")
 
 const remaindesReducer = (state = parseLocalState, action: ActionsType): Array<HoseProductType>  =>  {
     switch (action.type) {
         case "DELETE-VALUE": {
-            return {...state}
+
+            let copyState = state.filter((tl => tl.id !== action.itemID ))
+            localStorage.setItem('local', JSON.stringify(copyState))
+            return copyState
         }
         case "ADD-ITEM": {
             let copyState = [...state]
@@ -48,8 +51,8 @@ const remaindesReducer = (state = parseLocalState, action: ActionsType): Array<H
                 title: action.title
             }
             copyState.push(newItem)
-            localStorage.setItem('local', JSON.stringify(copyState))
 
+            localStorage.setItem('local', JSON.stringify(copyState))
 
             return copyState;
         }

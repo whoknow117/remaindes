@@ -3,7 +3,7 @@ import classes from './Remaindes.module.scss';
 import {StateType} from "../../redux/store";
 import {useDispatch, useSelector} from "react-redux";
 import {AddValuesPage, HoseProductType} from "../../types/types";
-import {AddItemAC} from "../../redux/remaindesReducer";
+import {AddItemAC, DeleteValueAC} from "../../redux/remaindesReducer";
 
 import InputValues from "./InputValues/InputValues";
 
@@ -51,20 +51,25 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
             </div>
             <div className={classes.remaindes}>
                 {state.map(h => {
+                    debugger
                     return <div className={classes.wrapper} key={h.id}>
 
 
-                           {/*<div className={classes.valueWrapper}>*/}
-                           {/*    <div className={classes.title}>{h.title} </div>*/}
-                           {/*    <div className={classes.value}>*/}
-                           {/*        {addValuesPage[h.id].map(v => {*/}
-                           {/*            return <div className={classes.valueItem}>*/}
-                           {/*                {v.value}*/}
-                           {/*            </div>*/}
-                           {/*        })}*/}
-                           {/*    </div>*/}
-                           {/*    <InputValues itemID={h.id}/>*/}
-                           {/*</div>*/}
+                           <div className={classes.valueWrapper}>
+                               <button onClick={() => {
+                               dispatch(DeleteValueAC(h.id))}
+                               }>x</button>
+                               <div className={classes.title}>{h.title} </div>
+                               <div className={classes.value}>
+                                   {addValuesPage && addValuesPage[h.id].map(v => {
+
+                                       return <div className={classes.valueItem}>
+                                           {v.value}
+                                       </div>
+                                   })}
+                               </div>
+                               <InputValues itemID={h.id}/>
+                           </div>
 
                     </div>
                 })}
