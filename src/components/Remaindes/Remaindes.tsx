@@ -11,7 +11,7 @@ type RemaindesType = {
 
 }
 
-const   Remaindes: React.FC<RemaindesType> = ( ) => {
+const Remaindes: React.FC<RemaindesType> = ( ) => {
 
     let state = useSelector<StateType,Array<HoseProductType>>( state => state.remaindesPage)
 

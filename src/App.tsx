@@ -5,29 +5,21 @@ import Remaindes from "./components/Remaindes/Remaindes";
 import AddRemaindes from "./components/AddRemaindes/AddRemaindes";
 
 
+type AppPropsType = {}
+
+function App(props: AppPropsType) {
 
 
-type AppPropsType = {
+    return (
+        <div className="App">
 
-}
+            <div className="routeWrapper">
 
-function App(props:AppPropsType) {
+                <Remaindes/>
 
-
-
-
-
-
-  return (
-    <div className="App">
-
-        <div className="routeWrapper">
-
-  <Remaindes/>
-
+            </div>
         </div>
-    </div>
-  );
+    );
 }
 
 export default App;
