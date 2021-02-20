@@ -34,7 +34,7 @@
       transition: .2s;
       &:hover {
         cursor: pointer;
-        background: #2d83f6;
+        background: #ef278e;
         color: #fff;
       }
 
@@ -99,15 +99,26 @@
     position: absolute;
     right: 20px;
     height: 40px;
+
     width: 40px;
     border: none;
     border-radius: 5px;
     transition: .1s;
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #2784ef;
+    svg {
+      fill: #fff;
+    }
     &:hover {
-      background: #2784ef;
+      background: #ef278e;
       cursor: pointer;
       color: #fff;
+      svg {
+        fill: #fff;
+      }
     }
   }
 }

@@ -6,6 +6,7 @@ import {AddValuesPage, HoseProductType} from "../../types/types";
 import {AddItemAC, DeleteValueAC} from "../../redux/remaindesReducer";
 
 import InputValues from "./InputValues/InputValues";
+import DeleteIcon from "../../assets/DeleteIcon/DeleteIcon";
 
 type RemaindesType = {
 
@@ -58,7 +59,9 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
                            <div className={classes.valueWrapper}>
                                <button className={classes.delete} onClick={() => {
                                dispatch(DeleteValueAC(h.id))}
-                               }>x</button>
+                               }>
+                                   <DeleteIcon/>
+                               </button>
                                <div className={classes.title}>{h.title} </div>
                                <div className={classes.value}>
                                    { addValuesPage[h.id].map(v => {
