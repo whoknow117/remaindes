@@ -8,6 +8,7 @@ import {AddItemAC, DeleteValueAC} from "../../redux/remaindesReducer";
 import InputValues from "./InputValues/InputValues";
 import DeleteIcon from "../../assets/DeleteIcon/DeleteIcon";
 import Rem from "./Rem";
+import PenIcon from "../../assets/PenIcon/PenIcon";
 
 type RemaindesType = {}
 
@@ -30,6 +31,10 @@ const Remaindes: React.FC<RemaindesType> = () => {
         setTitle(e.currentTarget.value)
     }
 
+
+    const changeMode = () =>{
+        setMode(!mode)
+    }
     return (
         <div className={classes.remaindesPage}>
             <div className={classes.addProductInput}>
@@ -52,7 +57,12 @@ const Remaindes: React.FC<RemaindesType> = () => {
                             }>
                                 <DeleteIcon/>
                             </button>
-                            <div className={classes.title}>{h.title} </div>
+                            <div className={classes.title}>
+                                {h.title}
+                                <button onClick={changeMode} className={classes.pen}>
+                                    <PenIcon/>
+                                </button>
+                            </div>
                             <div className={classes.value}>
                                 {addValuesPage[h.id].map(v => {
 
@@ -64,7 +74,7 @@ const Remaindes: React.FC<RemaindesType> = () => {
                                 })}
                             </div>
 
-                            <InputValues itemID={h.id}/>
+                              <InputValues mode={mode} itemID={h.id}/>
                         </div>
 
                     </div>

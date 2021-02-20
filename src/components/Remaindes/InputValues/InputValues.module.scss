@@ -27,10 +27,17 @@
     background: #2784ef;
     color: #fff;
     transition: .3s;
+    opacity: 1;
+    visibility: visible;
     &:hover {
       cursor: pointer;
       background: #2d83f6;
       color: #fff;
     }
   }
+}
+
+.active {
+  opacity: 0;
+  visibility: hidden;
 }
