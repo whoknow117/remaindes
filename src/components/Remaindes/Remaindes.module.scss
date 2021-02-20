@@ -32,9 +32,12 @@
       margin-left: 10px;
       padding: 0 10px;
       transition: .2s;
+      color: #fff;
+      font-family: Arial;
+      background: #ef278e;
       &:hover {
         cursor: pointer;
-        background: #ef278e;
+        background: #4381f3;
         color: #fff;
       }
 
@@ -108,12 +111,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #2784ef;
+    background: #ef278e;
+
     svg {
       fill: #fff;
     }
     &:hover {
-      background: #ef278e;
+
+      background: #2784ef;
       cursor: pointer;
       color: #fff;
       svg {
