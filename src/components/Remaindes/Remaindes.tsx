@@ -51,7 +51,7 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
             </div>
             <div className={classes.remaindes}>
                 {state.map(h => {
-                    debugger
+
                     return <div className={classes.wrapper} key={h.id}>
 
 
@@ -61,7 +61,7 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
                                }>x</button>
                                <div className={classes.title}>{h.title} </div>
                                <div className={classes.value}>
-                                   {addValuesPage && addValuesPage[h.id].map(v => {
+                                   { addValuesPage[h.id].map(v => {
 
                                        return <div className={classes.valueItem}>
                                            {v.value}

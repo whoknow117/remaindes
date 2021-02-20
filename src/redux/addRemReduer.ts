@@ -17,12 +17,11 @@ export const AddValueAC = (value:string, itemID:string):AddValueActionType => {
     }
 }
 
-let valuesState = localStorage.getItem('values')
+let values = localStorage.getItem('values')
+let valuesStorage:AddValuesPage = JSON.parse(values ? values : "")
 
-let val:AddValuesPage = JSON.parse(valuesState ? valuesState : "")
 
-
-const addRemaindesReducer = (state = val, action: ActionsType): AddValuesPage  =>  {
+const addRemaindesReducer = (state = valuesStorage, action: ActionsType): AddValuesPage  =>  {
     switch (action.type) {
         case "ADD-ITEM": {
 
