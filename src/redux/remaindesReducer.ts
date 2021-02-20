@@ -3,9 +3,10 @@ import {AddItemActionType, HoseProductType, RemaindesPageType} from "../types/ty
 import {ActionsType, DeleteValueActionType} from "../types/types";
 
 
-let InitialState: Array<HoseProductType> = [
 
-]
+
+
+
 
 
 
@@ -27,10 +28,25 @@ export const DeleteValueAC = (itemID:string):DeleteValueActionType => {
 }
 
 
-const remaindesReducer = (state = InitialState, action: ActionsType): Array<HoseProductType>  =>  {
+
+
+let InitialState: Array<HoseProductType> =  [
+
+]
+
+let local = localStorage.getItem('local')
+
+let localStore:Array<HoseProductType> = JSON.parse(local  ? local : '{}')
+
+
+const remaindesReducer = (state  = localStore , action: ActionsType): Array<HoseProductType>  =>  {
+
     switch (action.type) {
         case "DELETE-VALUE": {
-            return {...state}
+
+            let copyState = state.filter((tl => tl.id !== action.itemID ))
+            localStorage.setItem('local', JSON.stringify(copyState))
+            return copyState
         }
         case "ADD-ITEM": {
             let copyState = [...state]
@@ -40,6 +56,9 @@ const remaindesReducer = (state = InitialState, action: ActionsType): Array<Hose
                 title: action.title
             }
             copyState.push(newItem)
+
+            localStorage.setItem('local', JSON.stringify(copyState))
+
             return copyState;
         }
         default: {

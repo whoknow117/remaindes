@@ -9,21 +9,24 @@
     display: flex;
     justify-content: center;
     position: relative;
+
     .logo {
       position: absolute;
       left: 30px;
-      font-family: Arial,sans-serif;
+      font-family: Arial, sans-serif;
       font-size: 24px;
       color: #fff;
     }
+
     .input {
       height: 40px;
       width: 300px;
-      border:none;
+      border: none;
       border-radius: 5px;
       padding-left: 10px;
       outline: none;
     }
+
     .btn {
       display: block;
       height: 40px;
@@ -32,38 +35,76 @@
       margin-left: 10px;
       padding: 0 10px;
       transition: .2s;
+      color: #fff;
+      font-family: Arial;
+      background: #ef278e;
+
       &:hover {
         cursor: pointer;
-        background: #2d83f6;
+        background: #4381f3;
         color: #fff;
       }
 
     }
   }
+
   .remaindes {
     width: 100%;
     height: 100%;
+
     .wrapper {
       display: flex;
 
       flex-direction: column;
       border-bottom: 1px solid #c4c4c4;
       height: 60px;
+
       .title {
         font-weight: 700;
         width: 200px;
-       display: flex;
+        display: flex;
         align-items: center;
         height: 100%;
         padding-left: 10px;
         text-align: left;
+        position: relative;
+
+        .pen {
+          border: none;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: 4px;
+          top: 4px;
+          background: #242424;
+          outline: none;
+
+          svg {
+            fill: #fff;
+          }
+
+          &:hover {
+            cursor: pointer;
+            background: #096bff;
+
+            svg {
+              fill: #fff;
+            }
+          }
+        }
       }
+
       .value {
         margin-left: 10px;
         display: flex;
 
         height: 100%;
         line-height: 40px;
+
         .itemValue {
           width: 40px;
           height: 100%;
@@ -77,23 +118,39 @@
 }
 
 
-.valueItem {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;  
-  width: 40px;
-
-  text-align: center;
-  border-right: 1px solid silver;
-  &:first-child {
-    border-left: 1px solid silver;
-  }
-}
-
 .valueWrapper {
   display: flex;
   align-items: center;
   height: 60px;
 
+  .delete {
+    position: absolute;
+    right: 20px;
+    height: 40px;
+
+    width: 40px;
+    border: none;
+    border-radius: 5px;
+    transition: .1s;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ef278e;
+
+    svg {
+      fill: #fff;
+    }
+
+    &:hover {
+
+      background: #2784ef;
+      cursor: pointer;
+      color: #fff;
+
+      svg {
+        fill: #fff;
+      }
+    }
+  }
 }

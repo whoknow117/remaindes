@@ -1,0 +1,33 @@
+
+
+.valueItem {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  text-align: center;
+  border-right: 1px solid silver;
+  position: relative;
+  &:first-child {
+    border-left: 1px solid silver;
+  }
+  .btn {
+    border: none;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    border-radius: 50%;
+    width:14px;
+    outline: none;
+    height: 14px;
+    color: #fff;
+    line-height: 14px;
+    background: #ff1010;
+    transition: .2s;
+    &:hover {
+      background: #000000;
+      cursor: pointer;
+    }
+  }
+}

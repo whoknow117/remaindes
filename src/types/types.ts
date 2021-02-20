@@ -12,10 +12,27 @@ export type AddItemActionType = {
 export type AddValueActionType = {
     type: "ADD-VALUE"
     value: string
-    itemID:string
+    itemID: string
 }
 
-export type ActionsType = DeleteValueActionType | AddItemActionType | AddValueActionType
+export type ChangeValueTitleActionType = {
+    type: "CHANGE-VALUE-TITLE",
+    title: string,
+    productID: string
+    valID: string
+}
+
+export type RemoveValueActionType = {
+    type: "REMOVE-VALUE"
+    productID: string
+    valID: string
+}
+
+export type ActionsType = DeleteValueActionType
+    | AddItemActionType
+    | AddValueActionType
+    | ChangeValueTitleActionType
+    | RemoveValueActionType
 
 export type RemaindesPageType = {
     hoses: HosesType

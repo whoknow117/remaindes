@@ -6,11 +6,13 @@ import {AddValueAC} from "../../../redux/addRemReduer";
 
 
 type InputValuesPropsType = {
-
+    mode: boolean
     itemID: string
 }
 
-const   InputValues:React.FC<InputValuesPropsType> = ({itemID }) => {
+
+
+const  InputValues:React.FC<InputValuesPropsType> = ({itemID,mode }) => {
 
     const [values, setValues] = useState<string>('')
 
@@ -22,10 +24,11 @@ const   InputValues:React.FC<InputValuesPropsType> = ({itemID }) => {
 
     const setValuesCallback = () => {
         dispatch(AddValueAC(values, itemID))
+        setValues('')
     }
 
     return  (
-        <div className={classes.inputValue}>
+        <div className={`${classes.inputValue} ${mode ? classes.active : ""}`}>
             <input className={classes.input} value={values} onChange={onChangeValue} type="text"/>
             <button className={classes.btn} onClick={setValuesCallback}>добавить остаток</button>
         </div>
