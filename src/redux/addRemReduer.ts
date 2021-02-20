@@ -2,8 +2,8 @@ import {v1} from "uuid";
 import {
     AddValueActionType,
     AddValuesPage,
-    ChangeValueTitleActionType,
-    RemaindesType
+    ChangeValueTitleActionType, RemaindesStateType,
+
 } from "../types/types";
 import {ActionsType   } from "../types/types";
 
@@ -44,7 +44,7 @@ const addRemaindesReducer = (state = valuesStorage, action: ActionsType): AddVal
         case "ADD-VALUE": {
             let copyState = {...state}
 
-            let newValue: RemaindesType = {
+            let newValue: RemaindesStateType = {
                 id: v1(),
                 value: action.value
 

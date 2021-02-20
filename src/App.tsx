@@ -2,32 +2,39 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import './App.css';
 import Remaindes from "./components/Remaindes/Remaindes";
-import AddRemaindes from "./components/AddRemaindes/AddRemaindes";
+
+import HeaderInput from "./components/HeaderInput/HeaderInput";
+import {useDispatch, useSelector} from "react-redux";
+import {StateType} from "./redux/store";
+import {AddValuesPage, HoseProductType} from "./types/types";
 
 
+type AppPropsType = {}
+
+function App(props: AppPropsType) {
 
 
-type AppPropsType = {
+    const remaindesPage = useSelector<StateType, Array<HoseProductType>>(state => state.remaindesPage)
+    const addValuesPage = useSelector<StateType, AddValuesPage>(state => state.valuesPage)
 
-}
+    const dispatch = useDispatch()
 
-function App(props:AppPropsType) {
+    return (
+        <div className="App">
+            <HeaderInput/>
+            {remaindesPage.map(rem => {
+                let ValuesState = addValuesPage[rem.id]
+                return <Remaindes
+                    key={rem.id}
+                    productID={rem.id}
+                    title={rem.title}
+                    data={ValuesState}
+                />
+            })}
 
-
-
-
-
-
-  return (
-    <div className="App">
-
-        <div className="routeWrapper">
-
-  <Remaindes/>
 
         </div>
-    </div>
-  );
+    );
 }
 
 export default App;

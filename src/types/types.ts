@@ -40,11 +40,11 @@ export type HoseProductType = {
     title: string
 
 }
-export type RemaindesType = {
+export type RemaindesStateType = {
     id: string
     value: string
 }
 
 export type AddValuesPage = {
-    [key: string]: Array<RemaindesType>
+    [key: string]: Array<RemaindesStateType>
 }

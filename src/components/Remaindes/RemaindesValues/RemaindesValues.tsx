@@ -4,25 +4,30 @@ import {useDispatch, useSelector} from "react-redux";
 import {StateType} from "../../../redux/store";
 import {AddValuesPage} from "../../../types/types";
 import Values from "../Values/Values";
+import EditableSpan from "../../EditableSpan/EditableSpan";
 
 type RemaindesValuesPropsType = {
-
+    value: string
     productID: string
+    mode: boolean
 }
 
 
-const RemaindesValues:React.FC<RemaindesValuesPropsType> = ({productID}) => {
-
-    let addValuesPage = useSelector<StateType,AddValuesPage>( state => state.valuesPage)
-
-    let dispatch = useDispatch();
+const RemaindesValues:React.FC<RemaindesValuesPropsType> = ({mode,productID,value}) => {
 
 
-    return   (
-        <div className={classes.remaindesValue}>
-            { addValuesPage[productID].map(v => <Values key={v.id} value={v.value}/>)}
+
+
+    return  (
+        <div>
+            {/*<div>{productID}</div>*/}
+            <EditableSpan value={value}/>
         </div>
     )
+
+
+
+
 
 
 }

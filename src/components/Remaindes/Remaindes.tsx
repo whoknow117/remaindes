@@ -2,7 +2,7 @@ import React, {ChangeEvent, useState} from 'react';
 import classes from './Remaindes.module.scss';
 import {StateType} from "../../redux/store";
 import {useDispatch, useSelector} from "react-redux";
-import {AddValuesPage, HoseProductType} from "../../types/types";
+import {AddValuesPage, HoseProductType, RemaindesStateType} from "../../types/types";
 import {AddItemAC, DeleteValueAC} from "../../redux/remaindesReducer";
 
 import InputValues from "./InputValues/InputValues";
@@ -11,70 +11,71 @@ import Values from "./Values/Values";
 import RemaindesValues from "./RemaindesValues/RemaindesValues";
 
 type RemaindesType = {
-
+    productID: string
+    title: string
+    data: Array<RemaindesStateType>
 }
 
-const   Remaindes: React.FC<RemaindesType> = ( ) => {
-
-    let state = useSelector<StateType,Array<HoseProductType>>( state => state.remaindesPage)
+const Remaindes: React.FC<RemaindesType> = ({productID, title,data}) => {
 
 
 
 
-
-    let dispatch = useDispatch();
-
-    const [title,setTitle] = useState<string>('')
-     
+    const valuesPage = useSelector<StateType, AddValuesPage>( state => state.valuesPage)
 
 
-    const addItemCallback = () => {
-        dispatch(AddItemAC(title));
 
-    }
+    const [mode, setMode] = useState<boolean>(true)
 
 
 
 
 
-    const onChangeTitle = (e:ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value)
-    }
 
     return (
         <div className={classes.remaindesPage}>
-            <div className={classes.addProductInput}>
-                <h6 className={classes.logo}>Снабженец</h6>
-                <input className={classes.input} value={title} onChange={onChangeTitle} type="text"/>
-                <button className={classes.btn} onClick={addItemCallback}>Добавить товар</button>
+            <div>{title}</div>
+            <div className={classes.valueWrapper}>
+                {data.map( val => {
+                    return <RemaindesValues
+                        key={val.id}
+                        value={val.value}
+                        mode={mode}
+                        productID={productID}/>
 
-
-            </div>
-            <div className={classes.remaindes}>
-                {state.map(h => {
-
-                    return <div className={classes.wrapper} key={h.id}>
-
-
-                           <div className={classes.valueWrapper}>
-                               <button className={classes.delete} onClick={() => {
-                               dispatch(DeleteValueAC(h.id))}
-                               }>
-                                   <DeleteIcon/>
-                               </button>
-                               <div className={classes.title}>{h.title} </div>
-                               <div className={classes.value}>
-                                    <RemaindesValues productID={h.id}/>
-                               </div>
-                               <InputValues itemID={h.id}/>
-                           </div>
-
-                    </div>
                 })}
-
             </div>
+            <InputValues itemID={productID}/>
         </div>
     )
 }
 
 export default Remaindes;
+
+
+
+
+
+{/*<div className={classes.remaindes}>*/}
+{/*    {state.map(h => {*/}
+
+{/*        return <div className={classes.wrapper} key={h.id}>*/}
+
+
+{/*               <div className={classes.valueWrapper}>*/}
+{/*                   <button className={classes.delete} onClick={() => {*/}
+{/*                   dispatch(DeleteValueAC(h.id))}*/}
+{/*                   }>*/}
+{/*                       <DeleteIcon/>*/}
+{/*                   </button>*/}
+{/*                   <div className={classes.title}>{h.title} </div>*/}
+{/*                   <div className={classes.value}>*/}
+{/*                        <RemaindesValues productID={h.id}/>*/}
+{/*                   </div>*/}
+{/*                   <InputValues itemID={h.id}/>*/}
+{/*               </div>*/}
+
+{/*        </div>*/}
+{/*    })}*/}
+
+{/*</div>*/}
