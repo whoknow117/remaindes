@@ -12,8 +12,6 @@ export type StateType = {
 }
 
 
-
-
 export type  StateReducersType = ReturnType<typeof reducers>
 
 
@@ -26,7 +24,6 @@ let reducers = combineReducers({
 export type RootStateType = Store<StateReducersType, ActionsType>
 
 let store = createStore(reducers);
-
 
 
 export default store;

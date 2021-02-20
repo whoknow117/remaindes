@@ -7,25 +7,17 @@ import {AddItemAC, DeleteValueAC} from "../../redux/remaindesReducer";
 
 import InputValues from "./InputValues/InputValues";
 import DeleteIcon from "../../assets/DeleteIcon/DeleteIcon";
+import Rem from "./Rem";
 
-type RemaindesType = {
+type RemaindesType = {}
 
-}
+const Remaindes: React.FC<RemaindesType> = () => {
 
-const   Remaindes: React.FC<RemaindesType> = ( ) => {
-
-    let state = useSelector<StateType,Array<HoseProductType>>( state => state.remaindesPage)
-
-
-
-
-
-    let addValuesPage = useSelector<StateType,AddValuesPage>( state => state.valuesPage)
-
+    let state = useSelector<StateType, Array<HoseProductType>>(state => state.remaindesPage)
+    let addValuesPage = useSelector<StateType, AddValuesPage>(state => state.valuesPage)
     let dispatch = useDispatch();
-
-    const [title,setTitle] = useState<string>('')
-    const [mode,setMode] = useState<boolean>(false)
+    const [title, setTitle] = useState<string>('')
+    const [mode, setMode] = useState<boolean>(false)
 
 
     const addItemCallback = () => {
@@ -34,10 +26,7 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
     }
 
 
-
-
-
-    const onChangeTitle = (e:ChangeEvent<HTMLInputElement>) => {
+    const onChangeTitle = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
     }
 
@@ -56,23 +45,22 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
                     return <div className={classes.wrapper} key={h.id}>
 
 
-                           <div className={classes.valueWrapper}>
-                               <button className={classes.delete} onClick={() => {
-                               dispatch(DeleteValueAC(h.id))}
-                               }>
-                                   <DeleteIcon/>
-                               </button>
-                               <div className={classes.title}>{h.title} </div>
-                               <div className={classes.value}>
-                                   { addValuesPage[h.id].map(v => {
+                        <div className={classes.valueWrapper}>
+                            <button className={classes.delete} onClick={() => {
+                                dispatch(DeleteValueAC(h.id))
+                            }
+                            }>
+                                <DeleteIcon/>
+                            </button>
+                            <div className={classes.title}>{h.title} </div>
+                            <div className={classes.value}>
+                                {addValuesPage[h.id].map(v => {
 
-                                       return <div className={classes.valueItem}>
-                                           {v.value}
-                                       </div>
-                                   })}
-                               </div>
-                               <InputValues itemID={h.id}/>
-                           </div>
+                                    return <Rem value={v.value}/>
+                                })}
+                            </div>
+                            <InputValues itemID={h.id}/>
+                        </div>
 
                     </div>
                 })}
