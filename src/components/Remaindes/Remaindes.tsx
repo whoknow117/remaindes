@@ -56,7 +56,7 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
 
 
                            <div className={classes.valueWrapper}>
-                               <button onClick={() => {
+                               <button className={classes.delete} onClick={() => {
                                dispatch(DeleteValueAC(h.id))}
                                }>x</button>
                                <div className={classes.title}>{h.title} </div>

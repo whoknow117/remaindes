@@ -95,5 +95,19 @@
   display: flex;
   align-items: center;
   height: 60px;
-
+  .delete {
+    position: absolute;
+    right: 20px;
+    height: 40px;
+    width: 40px;
+    border: none;
+    border-radius: 5px;
+    transition: .1s;
+    font-size: 20px;
+    &:hover {
+      background: #2784ef;
+      cursor: pointer;
+      color: #fff;
+    }
+  }
 }
