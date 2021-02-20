@@ -22,10 +22,17 @@ export type ChangeValueTitleActionType = {
     valID: string
 }
 
+export type RemoveValueActionType = {
+    type: "REMOVE-VALUE"
+    productID: string
+    valID: string
+}
+
 export type ActionsType = DeleteValueActionType
     | AddItemActionType
     | AddValueActionType
     | ChangeValueTitleActionType
+    | RemoveValueActionType
 
 export type RemaindesPageType = {
     hoses: HosesType
