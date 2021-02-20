@@ -25,7 +25,7 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
     let dispatch = useDispatch();
 
     const [title,setTitle] = useState<string>('')
-
+    const [mode,setMode] = useState<boolean>(false)
 
 
     const addItemCallback = () => {
