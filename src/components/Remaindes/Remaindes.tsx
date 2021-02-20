@@ -7,6 +7,8 @@ import {AddItemAC, DeleteValueAC} from "../../redux/remaindesReducer";
 
 import InputValues from "./InputValues/InputValues";
 import DeleteIcon from "../../assets/DeleteIcon/DeleteIcon";
+import Values from "./Values/Values";
+import RemaindesValues from "./RemaindesValues/RemaindesValues";
 
 type RemaindesType = {
 
@@ -20,12 +22,10 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
 
 
 
-    let addValuesPage = useSelector<StateType,AddValuesPage>( state => state.valuesPage)
-
     let dispatch = useDispatch();
 
     const [title,setTitle] = useState<string>('')
-    const [mode,setMode] = useState<boolean>(false)
+     
 
 
     const addItemCallback = () => {
@@ -64,12 +64,7 @@ const   Remaindes: React.FC<RemaindesType> = ( ) => {
                                </button>
                                <div className={classes.title}>{h.title} </div>
                                <div className={classes.value}>
-                                   { addValuesPage[h.id].map(v => {
-
-                                       return <div className={classes.valueItem}>
-                                           {v.value}
-                                       </div>
-                                   })}
+                                    <RemaindesValues productID={h.id}/>
                                </div>
                                <InputValues itemID={h.id}/>
                            </div>
