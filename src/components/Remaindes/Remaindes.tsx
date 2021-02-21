@@ -31,13 +31,13 @@ const Remaindes: React.FC<RemaindesType> = () => {
     const onChangeTitle = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
     }
-    const onKeyPressHandler = (e:KeyboardEvent<HTMLInputElement>) => {
-        if(e.charCode === 13) {
+    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.charCode === 13) {
             addItemCallback()
         }
     }
 
-    const changeMode = () =>{
+    const changeMode = () => {
         setMode(!mode)
     }
     return (
@@ -45,14 +45,15 @@ const Remaindes: React.FC<RemaindesType> = () => {
             <div className={classes.addProductInput}>
                 <h6 className={classes.logo}>Снабженец</h6>
                 <div className={classes.inputWrapper}>
-                    <input onKeyPress={onKeyPressHandler} className={classes.input} value={title} onChange={onChangeTitle} type="text"/>
+                    <input onKeyPress={onKeyPressHandler} className={classes.input} value={title}
+                           onChange={onChangeTitle} type="text"/>
                     <button className={classes.btn} onClick={addItemCallback}>Добавить товар</button>
                 </div>
 
 
             </div>
             <div className={classes.remaindes}>
-                {state ? state.map(h => {
+                {state.map(h => {
 
                     return <div className={classes.wrapper} key={h.id}>
 
@@ -81,11 +82,11 @@ const Remaindes: React.FC<RemaindesType> = () => {
                                 })}
                             </div>
 
-                              <InputValues mode={mode} itemID={h.id}/>
+                            <InputValues mode={mode} itemID={h.id}/>
                         </div>
 
                     </div>
-                }): ''}
+                }) }
 
             </div>
         </div>

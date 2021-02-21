@@ -22,6 +22,9 @@
       color: #fff;
       margin-left: 20px;
     }
+    @media (max-width: 480px) {
+      display: none;
+    }
     .inputWrapper {
       flex-basis: 70%;
       display: flex;
