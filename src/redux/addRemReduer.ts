@@ -7,8 +7,8 @@ import {
 } from "../types/types";
 import {ActionsType} from "../types/types";
 
-
-let InitialState: AddValuesPage = {}
+//
+let InitialState2: AddValuesPage = {}
 
 export const ChangeValueTitleAC = (valID: string, title: string, productID: string): ChangeValueTitleActionType => {
     return {
@@ -35,10 +35,10 @@ export const removeValueAC = (productID: string, valID: string) => {
 }
 
 let values = localStorage.getItem('values')
-let valuesStorage: AddValuesPage = JSON.parse(values ? values : '{}')
+let InitialState: AddValuesPage = JSON.parse(values ? values : '{}')
 
 
-const addRemaindesReducer = (state = valuesStorage, action: ActionsType): AddValuesPage => {
+const addRemaindesReducer = (state = InitialState, action: ActionsType): AddValuesPage => {
     switch (action.type) {
         case "ADD-ITEM": {
 

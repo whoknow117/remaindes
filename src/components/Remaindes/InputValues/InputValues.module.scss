@@ -2,6 +2,7 @@
 
 .inputValue {
   position: absolute;
+  width: 200px;
   right: 80px;
   display: flex;
   background: #fff;
@@ -10,12 +11,13 @@
 
   .input {
     height: 40px;
-    width: 300px;
+    width: 30%;
     border:none;
     border-radius: 5px;
     padding-left: 10px;
     outline: none;
     background: rgba(0,0,0,.1);
+    margin-right: 8px;
   }
   .btn {
     display: block;

@@ -7,20 +7,31 @@
     height: 80px;
     align-items: center;
     display: flex;
+
     justify-content: center;
     position: relative;
 
     .logo {
-      position: absolute;
+      flex-basis: 30%;
+      display: block;
+      margin-right: auto;
       left: 30px;
+      text-align: left;
       font-family: Arial, sans-serif;
       font-size: 24px;
       color: #fff;
+      margin-left: 20px;
     }
+    .inputWrapper {
+      flex-basis: 70%;
+      display: flex;
 
+      justify-content: flex-end;
+      margin-right: 20px;
+    }
     .input {
       height: 40px;
-      width: 300px;
+      width: 80%;
       border: none;
       border-radius: 5px;
       padding-left: 10px;

@@ -39,8 +39,10 @@ const Remaindes: React.FC<RemaindesType> = () => {
         <div className={classes.remaindesPage}>
             <div className={classes.addProductInput}>
                 <h6 className={classes.logo}>Снабженец</h6>
-                <input className={classes.input} value={title} onChange={onChangeTitle} type="text"/>
-                <button className={classes.btn} onClick={addItemCallback}>Добавить товар</button>
+                <div className={classes.inputWrapper}>
+                    <input className={classes.input} value={title} onChange={onChangeTitle} type="text"/>
+                    <button className={classes.btn} onClick={addItemCallback}>Добавить товар</button>
+                </div>
 
 
             </div>
