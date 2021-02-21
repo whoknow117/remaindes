@@ -35,10 +35,10 @@ export const removeValueAC = (productID: string, valID: string) => {
 }
 
 let values = localStorage.getItem('values')
-let valuesStorage: AddValuesPage = JSON.parse(values ? values : '{}')
+// let valuesStorage: AddValuesPage = JSON.parse(values ? values : '{}')
 
 
-const addRemaindesReducer = (state = valuesStorage, action: ActionsType): AddValuesPage => {
+const addRemaindesReducer = (state = InitialState, action: ActionsType): AddValuesPage => {
     switch (action.type) {
         case "ADD-ITEM": {
 
