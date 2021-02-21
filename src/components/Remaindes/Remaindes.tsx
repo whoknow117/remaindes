@@ -45,7 +45,7 @@ const Remaindes: React.FC<RemaindesType> = () => {
 
             </div>
             <div className={classes.remaindes}>
-                {state.map(h => {
+                {state && state.map(h => {
 
                     return <div className={classes.wrapper} key={h.id}>
 
