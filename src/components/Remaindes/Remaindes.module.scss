@@ -83,7 +83,9 @@
         padding-left: 10px;
         text-align: left;
         position: relative;
-
+@media (max-width: 420px) {
+  width: 100px;
+}
         .pen {
           border: none;
           border-radius: 50%;

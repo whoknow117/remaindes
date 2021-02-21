@@ -67,9 +67,7 @@ const Remaindes: React.FC<RemaindesType> = () => {
                             </button>
                             <div className={classes.title}>
                                 {h.title}
-                                <button onClick={changeMode} className={classes.pen}>
-                                    <PenIcon/>
-                                </button>
+
                             </div>
                             <div className={classes.value}>
                                 {addValuesPage[h.id].map(v => {
