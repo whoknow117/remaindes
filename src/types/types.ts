@@ -1,3 +1,5 @@
+import {StateType} from "../redux/store";
+
 export type DeleteValueActionType = {
     type: "DELETE-VALUE"
     itemID: string
@@ -27,12 +29,17 @@ export type RemoveValueActionType = {
     productID: string
     valID: string
 }
+export type AddLocalActionType = {
+    type: "ADD-LOCAL",
+    state: Array<HoseProductType>
+}
 
 export type ActionsType = DeleteValueActionType
     | AddItemActionType
     | AddValueActionType
     | ChangeValueTitleActionType
     | RemoveValueActionType
+    | AddLocalActionType
 
 export type RemaindesPageType = {
     hoses: HosesType

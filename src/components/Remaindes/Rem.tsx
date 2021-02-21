@@ -1,7 +1,10 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import classes from "./Rem.module.scss";
-import {useDispatch} from "react-redux";
-import {ChangeValueTitleAC, removeValueAC} from "../../redux/addRemReduer";
+import {useDispatch, useSelector} from "react-redux";
+import {AddValueAC, ChangeValueTitleAC, removeValueAC} from "../../redux/addRemReduer";
+import {StateType} from "../../redux/store";
+import {AddValuesPage} from "../../types/types";
+import {addLocalStorageAC} from "../../redux/remaindesReducer";
 
 
 type RemType = {
@@ -13,13 +16,12 @@ type RemType = {
 
 const Rem: React.FC<RemType> = ({value,productID,valID}) => {
 
-    let storage = localStorage.getItem('values')
 
-    let storageValues = JSON.parse(storage ?  storage : '{}')
+
 
     const [title, setTitle] = useState<string>(value)
     const [mode, setMode] = useState<boolean>(false)
-
+    const state = useSelector<StateType,AddValuesPage>( state => state.valuesPage)
     const dispatch = useDispatch()
 
   const changeMode = () => {
@@ -33,10 +35,13 @@ const Rem: React.FC<RemType> = ({value,productID,valID}) => {
   const changeTitleCallback = () => {
         dispatch(ChangeValueTitleAC(valID,value,productID))
         changeMode();
+
   }
   const deleteValue = () => {
         dispatch(removeValueAC(productID, valID))
+      localStorage.setItem('values', JSON.stringify(state))
   }
+
 
     return (
 

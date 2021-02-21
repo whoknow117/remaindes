@@ -1,6 +1,7 @@
 import {v1} from "uuid";
-import {AddItemActionType, HoseProductType, RemaindesPageType} from "../types/types";
+import {AddItemActionType, AddLocalActionType, HoseProductType, RemaindesPageType} from "../types/types";
 import {ActionsType, DeleteValueActionType} from "../types/types";
+
 
 
 
@@ -27,19 +28,25 @@ export const DeleteValueAC = (itemID:string):DeleteValueActionType => {
     }
 }
 
+export const addLocalStorageAC = (state: Array<HoseProductType>): AddLocalActionType => {
+    return {
+        type: "ADD-LOCAL",
+        state
+    }
+}
 
 
 
-let InitialState: Array<HoseProductType> =  [
+let InitialState:Array<HoseProductType>=  [
 
 ]
 
-let local = localStorage.getItem('local')
+let local = localStorage.getItem('storage')
 
-let localStore:Array<HoseProductType> = JSON.parse(local  ? local : '{}')
+let lS:Array<HoseProductType> = JSON.parse( local ? local : '{}')
 
 
-const remaindesReducer = (state  = localStore , action: ActionsType): Array<HoseProductType>  =>  {
+const remaindesReducer = (state  = lS , action: ActionsType): Array<HoseProductType>  =>  {
 
     switch (action.type) {
         case "DELETE-VALUE": {
@@ -61,6 +68,13 @@ const remaindesReducer = (state  = localStore , action: ActionsType): Array<Hose
 
             return copyState;
         }
+        // case "ADD-LOCAL": {
+        //     let copyState = [...state]
+        //     if(copyState) {
+        //         copyState = action.state
+        //     }
+        //     return copyState
+        // }
         default: {
             return state;
         }

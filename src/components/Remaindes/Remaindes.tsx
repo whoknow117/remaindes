@@ -1,9 +1,9 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import classes from './Remaindes.module.scss';
 import {StateType} from "../../redux/store";
 import {useDispatch, useSelector} from "react-redux";
 import {AddValuesPage, HoseProductType} from "../../types/types";
-import {AddItemAC, DeleteValueAC} from "../../redux/remaindesReducer";
+import {AddItemAC, addLocalStorageAC, DeleteValueAC} from "../../redux/remaindesReducer";
 
 import InputValues from "./InputValues/InputValues";
 import DeleteIcon from "../../assets/DeleteIcon/DeleteIcon";
@@ -23,7 +23,7 @@ const Remaindes: React.FC<RemaindesType> = () => {
 
     const addItemCallback = () => {
         dispatch(AddItemAC(title));
-
+        // localStorage.setItem('storage', JSON.stringify(state))
     }
 
 
@@ -35,6 +35,9 @@ const Remaindes: React.FC<RemaindesType> = () => {
     const changeMode = () =>{
         setMode(!mode)
     }
+
+
+
     return (
         <div className={classes.remaindesPage}>
             <div className={classes.addProductInput}>
@@ -53,6 +56,7 @@ const Remaindes: React.FC<RemaindesType> = () => {
                         <div className={classes.valueWrapper}>
                             <button className={classes.delete} onClick={() => {
                                 dispatch(DeleteValueAC(h.id))
+                                localStorage.setItem('storage', JSON.stringify(state))
                             }
                             }>
                                 <DeleteIcon/>
@@ -64,14 +68,14 @@ const Remaindes: React.FC<RemaindesType> = () => {
                                 </button>
                             </div>
                             <div className={classes.value}>
-                                {addValuesPage[h.id].map(v => {
+                                {/*{addValuesPage[h.id].map(v => {*/}
 
-                                    return <Rem
-                                        key={v.id}
-                                        valID={v.id}
-                                        productID={h.id}
-                                        value={v.value}/>
-                                })}
+                                {/*    return <Rem*/}
+                                {/*        key={v.id}*/}
+                                {/*        valID={v.id}*/}
+                                {/*        productID={h.id}*/}
+                                {/*        value={v.value}/>*/}
+                                {/*})}*/}
                             </div>
 
                               <InputValues mode={mode} itemID={h.id}/>

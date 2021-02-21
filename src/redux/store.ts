@@ -22,6 +22,10 @@ let reducers = combineReducers({
 })
 
 export type RootStateType = Store<StateReducersType, ActionsType>
+//@types
+// const persistedState = localStorage.getItem('reduxState')
+//     ? JSON.parse(localStorage.getItem('reduxState'))
+//     : '{}'
 
 let store = createStore(reducers);
 
