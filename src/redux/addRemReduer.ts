@@ -8,7 +8,7 @@ import {
 import {ActionsType} from "../types/types";
 
 //
-let InitialState2: AddValuesPage = {}
+let InitialState: AddValuesPage = {}
 
 export const ChangeValueTitleAC = (valID: string, title: string, productID: string): ChangeValueTitleActionType => {
     return {
@@ -34,8 +34,8 @@ export const removeValueAC = (productID: string, valID: string) => {
     }
 }
 
-let values = localStorage.getItem('values')
-let InitialState: AddValuesPage = JSON.parse(values ? values : '{}')
+// let values = localStorage.getItem('values')
+// let InitialState: AddValuesPage = JSON.parse(values ? values : '{}')
 
 
 const addRemaindesReducer = (state = InitialState, action: ActionsType): AddValuesPage => {
@@ -54,7 +54,7 @@ const addRemaindesReducer = (state = InitialState, action: ActionsType): AddValu
             }
 
             copyState[action.itemID].push(newValue)
-            localStorage.setItem('values', JSON.stringify(copyState))
+            // localStorage.setItem('values', JSON.stringify(copyState))
             return copyState
         }
         case "DELETE-VALUE": {
@@ -67,7 +67,7 @@ const addRemaindesReducer = (state = InitialState, action: ActionsType): AddValu
             copyState[action.productID] = copyState[action.productID].filter( v => v.id === action.valID ?
             v.value = action.title : v)
 
-            localStorage.setItem('values', JSON.stringify(copyState))
+            // localStorage.setItem('values', JSON.stringify(copyState))
             return copyState
 
 

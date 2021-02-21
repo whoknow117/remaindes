@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import classes from './Remaindes.module.scss';
-import {StateType} from "../../redux/store";
+import {RootStateType, StateType} from "../../redux/store";
 import {useDispatch, useSelector} from "react-redux";
 import {AddValuesPage, HoseProductType} from "../../types/types";
 import {AddItemAC, DeleteValueAC} from "../../redux/remaindesReducer";
@@ -10,13 +10,18 @@ import DeleteIcon from "../../assets/DeleteIcon/DeleteIcon";
 import Rem from "./Rem";
 import PenIcon from "../../assets/PenIcon/PenIcon";
 
-type RemaindesType = {}
+type RemaindesType = {
+    store:RootStateType
+}
 
-const Remaindes: React.FC<RemaindesType> = () => {
+const Remaindes: React.FC<RemaindesType> = ({store}) => {
 
-    let state = useSelector<StateType, Array<HoseProductType>>(state => state.remaindesPage)
-    let addValuesPage = useSelector<StateType, AddValuesPage>(state => state.valuesPage)
-    let dispatch = useDispatch();
+    // let state = useSelector<StateType, Array<HoseProductType>>(state => state.remaindesPage)
+    // let addValuesPage = useSelector<StateType, AddValuesPage>(state => state.valuesPage)
+    // let dispatch = useDispatch();
+    let productState = store.getState().remaindesPage
+    let addValuesPage = store.getState().valuesPage
+    let dispatch = store.dispatch
     const [title, setTitle] = useState<string>('')
     const [mode, setMode] = useState<boolean>(false)
 
@@ -47,7 +52,7 @@ const Remaindes: React.FC<RemaindesType> = () => {
 
             </div>
             <div className={classes.remaindes}>
-                {state ? state.map(h => {
+                {productState ? productState.map(h => {
 
                     return <div className={classes.wrapper} key={h.id}>
 
@@ -76,7 +81,7 @@ const Remaindes: React.FC<RemaindesType> = () => {
                                 {/*})}*/}
                             </div>
 
-                              <InputValues mode={mode} itemID={h.id}/>
+                              <InputValues store={store} mode={mode} itemID={h.id}/>
                         </div>
 
                     </div>

@@ -40,18 +40,18 @@ let InitialState: Array<HoseProductType> =  [
 //
 // let inStore = JSON.parse(initialStorage ? initialStorage : '{}')
 
-let local = localStorage.getItem('local')
+// let local = localStorage.getItem('local')
+//
+// let localStore:Array<HoseProductType> = JSON.parse(local  ? local : '{}')
 
-let localStore:Array<HoseProductType> = JSON.parse(local  ? local : '{}')
 
-
-const remaindesReducer = (state  = localStore , action: ActionsType): Array<HoseProductType>  =>  {
+const remaindesReducer = (state  = InitialState , action: ActionsType): Array<HoseProductType>  =>  {
 
     switch (action.type) {
         case "DELETE-VALUE": {
 
             let copyState = state.filter((tl => tl.id !== action.itemID ))
-            localStorage.setItem('local', JSON.stringify(copyState))
+            // localStorage.setItem('local', JSON.stringify(copyState))
             return copyState
         }
         case "ADD-ITEM": {
@@ -63,7 +63,7 @@ const remaindesReducer = (state  = localStore , action: ActionsType): Array<Hose
             }
             copyState.push(newItem)
 
-            localStorage.setItem('local', JSON.stringify(copyState))
+            // localStorage.setItem('local', JSON.stringify(copyState))
 
             return copyState;
         }
