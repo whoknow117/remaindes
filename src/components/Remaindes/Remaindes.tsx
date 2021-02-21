@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import classes from './Remaindes.module.scss';
 import {StateType} from "../../redux/store";
 import {useDispatch, useSelector} from "react-redux";
@@ -23,6 +23,7 @@ const Remaindes: React.FC<RemaindesType> = () => {
 
     const addItemCallback = () => {
         dispatch(AddItemAC(title));
+        setTitle('')
 
     }
 
@@ -30,7 +31,11 @@ const Remaindes: React.FC<RemaindesType> = () => {
     const onChangeTitle = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
     }
-
+    const onKeyPressHandler = (e:KeyboardEvent<HTMLInputElement>) => {
+        if(e.charCode === 13) {
+            addItemCallback()
+        }
+    }
 
     const changeMode = () =>{
         setMode(!mode)
@@ -40,7 +45,7 @@ const Remaindes: React.FC<RemaindesType> = () => {
             <div className={classes.addProductInput}>
                 <h6 className={classes.logo}>Снабженец</h6>
                 <div className={classes.inputWrapper}>
-                    <input className={classes.input} value={title} onChange={onChangeTitle} type="text"/>
+                    <input onKeyPress={onKeyPressHandler} className={classes.input} value={title} onChange={onChangeTitle} type="text"/>
                     <button className={classes.btn} onClick={addItemCallback}>Добавить товар</button>
                 </div>
 

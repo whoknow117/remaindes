@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useState, KeyboardEvent} from 'react';
 import classes from "./Rem.module.scss";
 import {useDispatch} from "react-redux";
 import {ChangeValueTitleAC, removeValueAC} from "../../redux/addRemReduer";
@@ -31,11 +31,16 @@ const Rem: React.FC<RemType> = ({value,productID,valID}) => {
   }
 
   const changeTitleCallback = () => {
-        dispatch(ChangeValueTitleAC(valID,value,productID))
+        dispatch(ChangeValueTitleAC(valID,title,productID))
         changeMode();
   }
   const deleteValue = () => {
         dispatch(removeValueAC(productID, valID))
+  }
+  const onKeyPressHandler = (e:KeyboardEvent<HTMLInputElement>) => {
+        if(e.charCode === 13) {
+            changeTitleCallback()
+        }
   }
 
     return (
@@ -43,7 +48,7 @@ const Rem: React.FC<RemType> = ({value,productID,valID}) => {
 
             <div className={classes.valueItem}>
                 <button onClick={deleteValue} className={classes.btn}>x</button>
-                {mode ? <input value={title} onChange={changeNewValue} onBlur={changeTitleCallback} type="text"/> : <span onClick={changeMode}>{value}м</span>}
+                {mode ? <input onKeyPress={onKeyPressHandler} className={classes.input} value={title} onChange={changeNewValue} onBlur={changeTitleCallback} type="text"/> : <span onClick={changeMode}>{value}м</span>}
             </div>
 
 

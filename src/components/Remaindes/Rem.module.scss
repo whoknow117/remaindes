@@ -12,6 +12,12 @@
   &:first-child {
     border-left: 1px solid silver;
   }
+  .input {
+    width: 100%;
+    outline:none;
+    border:none;
+    text-align: center;
+  }
   .btn {
     border: none;
     position: absolute;

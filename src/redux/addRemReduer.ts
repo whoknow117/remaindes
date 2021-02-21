@@ -63,12 +63,10 @@ const addRemaindesReducer = (state = InitialState, action: ActionsType): AddValu
             return copyState;
         }
         case "CHANGE-VALUE-TITLE": {
-            let copyState = {...state}
-            copyState[action.productID] = copyState[action.productID].filter( v => v.id === action.valID ?
-            v.value = action.title : v)
-
-            // localStorage.setItem('values', JSON.stringify(copyState))
-            return copyState
+           return {...state,[action.productID]: state[action.productID].map(el =>{
+               if(el.id !== action.valID) return el
+                   else return {...el, value : action.title}
+               })}
 
 
 

@@ -7,17 +7,17 @@ import {Provider} from "react-redux";
 import {saveState} from "./localStorage";
 
 
-store.subscribe(()=>{
+store.subscribe(() => {
     saveState(store.getState())
 })
 
 ReactDOM.render(
     <BrowserRouter>
-   <Provider store={store}>
-       <App  />
-   </Provider>
+        <Provider store={store}>
+            <App/>
+        </Provider>
     </BrowserRouter>
- ,
-  document.getElementById('root')
+    ,
+    document.getElementById('root')
 );
 
