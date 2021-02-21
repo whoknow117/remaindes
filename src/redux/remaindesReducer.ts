@@ -42,10 +42,10 @@ let InitialState: Array<HoseProductType> =  [
 
 let local = localStorage.getItem('local')
 
-// let localStore:Array<HoseProductType> = JSON.parse(local  ? local : '{}')
+let localStore:Array<HoseProductType> = JSON.parse(local  ? local : '{}')
 
 
-const remaindesReducer = (state  = InitialState , action: ActionsType): Array<HoseProductType>  =>  {
+const remaindesReducer = (state  = localStore , action: ActionsType): Array<HoseProductType>  =>  {
 
     switch (action.type) {
         case "DELETE-VALUE": {
