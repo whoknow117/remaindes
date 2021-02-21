@@ -66,14 +66,14 @@ const Remaindes: React.FC<RemaindesType> = () => {
                                 </button>
                             </div>
                             <div className={classes.value}>
-                                {addValuesPage[h.id].map(v => {
+                                {/*{addValuesPage[h.id].map(v => {*/}
 
-                                    return <Rem
-                                        key={v.id}
-                                        valID={v.id}
-                                        productID={h.id}
-                                        value={v.value}/>
-                                })}
+                                {/*    return <Rem*/}
+                                {/*        key={v.id}*/}
+                                {/*        valID={v.id}*/}
+                                {/*        productID={h.id}*/}
+                                {/*        value={v.value}/>*/}
+                                {/*})}*/}
                             </div>
 
                               <InputValues mode={mode} itemID={h.id}/>
