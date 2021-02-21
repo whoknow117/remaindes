@@ -34,15 +34,15 @@ let InitialState: Array<HoseProductType> =  [
 
 ]
 
-localStorage.setItem('initial', JSON.stringify(InitialState))
-
-let initialStorage = localStorage.getItem('initial')
-
-
+// localStorage.setItem('initial', JSON.stringify(InitialState))
+//
+// let initialStorage = localStorage.getItem('initial')
+//
+// let inStore = JSON.parse(initialStorage ? initialStorage : '{}')
 
 let local = localStorage.getItem('local')
 
-let localStore:Array<HoseProductType> = JSON.parse(local  ? local : JSON.parse(initialStorage ? initialStorage: '{}'))
+let localStore:Array<HoseProductType> = JSON.parse(local  ? local : '{}')
 
 
 const remaindesReducer = (state  = localStore , action: ActionsType): Array<HoseProductType>  =>  {
