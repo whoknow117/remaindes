@@ -3,6 +3,7 @@ import {AddValuesPage, HoseProductType, RemaindesPageType} from "../types/types"
 import remaindesReducer from "./remaindesReducer";
 import {ActionsType} from "../types/types";
 import addRemReduer from "./addRemReduer";
+import {loadState} from "../localStorage";
 
 
 export type StateType = {
@@ -11,6 +12,7 @@ export type StateType = {
 
 }
 
+const persistedState = loadState()
 
 export type  StateReducersType = ReturnType<typeof reducers>
 
@@ -23,7 +25,10 @@ let reducers = combineReducers({
 
 export type RootStateType = Store<StateReducersType, ActionsType>
 
-let store = createStore(reducers);
+let store = createStore(
+    reducers,
+    persistedState
+);
 
 
 export default store;
