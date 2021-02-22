@@ -69,16 +69,18 @@ const Remaindes: React.FC<RemaindesType> = () => {
                                 {h.title}
 
                             </div>
-                            <div className={classes.value}>
-                                {addValuesPage[h.id].map(v => {
 
-                                    return <Rem
-                                        key={v.id}
-                                        valID={v.id}
-                                        productID={h.id}
-                                        value={v.value}/>
-                                })}
-                            </div>
+                               <div className={classes.value}>
+                                   {addValuesPage[h.id].map(v => {
+
+                                       return <Rem
+                                           key={v.id}
+                                           valID={v.id}
+                                           productID={h.id}
+                                           value={v.value}/>
+                                   })}
+                               </div>
+
 
                             <InputValues mode={mode} itemID={h.id}/>
                         </div>

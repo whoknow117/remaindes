@@ -48,7 +48,7 @@ const Rem: React.FC<RemType> = ({value,productID,valID}) => {
 
             <div className={classes.valueItem}>
                 <button onClick={deleteValue} className={classes.btn}>x</button>
-                {mode ? <input onKeyPress={onKeyPressHandler} className={classes.input} value={title} onChange={changeNewValue} onBlur={changeTitleCallback} type="text"/> : <span onClick={changeMode}>{value}м</span>}
+                {mode ? <input onKeyPress={onKeyPressHandler} className={classes.input} value={title} onChange={changeNewValue} onBlur={changeTitleCallback} type="text"/> : <div onClick={changeMode}>{value}м</div>}
             </div>
 
 

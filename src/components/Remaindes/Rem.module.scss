@@ -1,6 +1,7 @@
 
 
 .valueItem {
+  min-width: 40px;
   height: 60px;
   display: flex;
   align-items: center;
@@ -9,6 +10,7 @@
   text-align: center;
   border-right: 1px solid silver;
   position: relative;
+
   &:first-child {
     border-left: 1px solid silver;
   }
