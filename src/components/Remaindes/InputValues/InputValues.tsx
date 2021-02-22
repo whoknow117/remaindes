@@ -16,7 +16,7 @@ type InputValuesPropsType = {
 const  InputValues:React.FC<InputValuesPropsType> = ({itemID,mode }) => {
 
     const [values, setValues] = useState<string>('')
-    const [drawMode, setDrawMode] = useState<boolean>(false)
+    const [drawMode, setDrawMode] = useState<boolean>(true)
     const onChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
         setValues(e.currentTarget.value)
     }

@@ -1,5 +1,6 @@
 
 .remaindesPage {
+
   .addProductInput {
     width: 100%;
     background: linear-gradient(21deg, #dd03e4, #5b18f6);
@@ -13,13 +14,14 @@
 
     .logo {
       flex-basis: 30%;
-      display: block;
+
       margin-right: auto;
       left: 30px;
       text-align: left;
       font-family: Arial, sans-serif;
       font-size: 24px;
       color: #fff;
+      display: none;
       margin-left: 20px;
       @media (max-width: 480px) {
         display: none;
@@ -27,7 +29,7 @@
     }
 
     .inputWrapper {
-      flex-basis: 70%;
+      flex-basis: 100%;
       display: flex;
 
       justify-content: flex-end;
@@ -35,7 +37,8 @@
     }
     .input {
       height: 40px;
-      width: 80%;
+      width: 90%;
+      margin-left: 10px;
       border: none;
       border-radius: 5px;
       padding-left: 10px;
@@ -75,13 +78,14 @@
       height: 60px;
 
       .title {
-        font-weight: 700;
-        width: 200px;
+        font-weight: 500;
+        width: 140px;
         display: flex;
         align-items: center;
         height: 100%;
         padding-left: 10px;
         text-align: left;
+        color: #545454;
         position: relative;
 @media (max-width: 420px) {
   width: 100px;
